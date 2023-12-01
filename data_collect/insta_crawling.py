@@ -98,4 +98,5 @@ for i in range(target):
 
 result_df = pd.DataFrame(results)
 result_df.columns = ['tags', 'place']
-result_df.to_csv('insta_travel_crawling.csv', index=False, encoding='utf-8')
+# encoding = utf-8-sig로 해야 한글 안 깨짐
+result_df.to_csv('insta_travel_crawling.csv', index=False, encoding='utf-8-sig')
