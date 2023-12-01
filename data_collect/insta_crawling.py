@@ -55,7 +55,7 @@ def get_content(driver):
     except:
         content = ''
     # 해시태그
-    tags = re.findall(r'#[^\s#,\\]', content)
+    tags = re.findall(r'#[^\s#,\\]+', content)
     # 작성일자
     date = soup.select('time._aaqe')[0]['datetime'][:10]
     # 좋아요 수(현재 크롤링 불가능)
@@ -68,11 +68,34 @@ def get_content(driver):
         place = soup.select('div._aaqm')[0].text
     except:
         place = ''
-    data = [content, date, place, tags]
-    return data
+    # data = [content, date, place, tags]
+    # 우선 tags랑 place만 저장해놓음
+    return [tags, place]
 
 # 다음 게시물로 클릭 이동시키는 함수
 def move_next(driver):
     next = driver.find_element(By.CSS_SELECTOR, "div._aaqg._aaqh")
     next.click()
     time.sleep(3)
+
+# 결과 저정할 리스트
+results = []
+# 수집할 게시물 수
+target = 10
+for i in range(target):
+    try:
+        data = get_content(driver)
+        results.append(data)
+        print(i+1)
+        move_next(driver)
+    except:
+        time.sleep(2)
+        move_next(driver)
+    time.sleep(1)
+
+# 결과 출력
+# print(results)
+
+result_df = pd.DataFrame(results)
+result_df.columns = ['tags', 'place']
+result_df.to_csv('insta_travel_crawling.csv', index=False, encoding='utf-8')
