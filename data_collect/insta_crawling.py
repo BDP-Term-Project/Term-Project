@@ -40,3 +40,39 @@ url = "https://www.instagram.com/explore/tags/여행/"
 driver.get(url)
 time.sleep(10)
 
+# 첫 번째 게시물 클릭
+first = driver.find_elements(By.CSS_SELECTOR, "div._aagw")[0]
+first.click()
+time.sleep(3)
+
+# 게시물에서 본문, 작성일자, 좋아요 수, 위치 정보, 해시태그 가져오는 함수
+def get_content(driver):
+    html = driver.page_source
+    soup = BeautifulSoup(html, 'html.parser')
+    # 본문 내용
+    try:
+        content = soup.select('h1._ap3a._aaco._aacu._aacx._aad7._aade')[0].text
+    except:
+        content = ''
+    # 해시태그
+    tags = re.findall(r'#[^\s#,\\]', content)
+    # 작성일자
+    date = soup.select('time._aaqe')[0]['datetime'][:10]
+    # 좋아요 수(현재 크롤링 불가능)
+    #try:
+        #like = soup.select('div._aacl._aaco._aacw._aacx._aada._aade')[0].findAll('span')[-1].text
+    #except:
+        #like = 0
+    # 위치
+    try: 
+        place = soup.select('div._aaqm')[0].text
+    except:
+        place = ''
+    data = [content, date, place, tags]
+    return data
+
+# 다음 게시물로 클릭 이동시키는 함수
+def move_next(driver):
+    next = driver.find_element(By.CSS_SELECTOR, "div._aaqg._aaqh")
+    next.click()
+    time.sleep(3)
