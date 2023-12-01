@@ -1,3 +1,4 @@
+# 현재 크롬버전에 맞는 chromedriver 다운받아놔야 함
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
