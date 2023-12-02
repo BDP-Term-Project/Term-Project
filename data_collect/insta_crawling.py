@@ -69,8 +69,8 @@ def get_content(driver):
     except:
         place = ''
     # data = [content, date, place, tags]
-    # 우선 tags랑 place만 저장해놓음
-    return [tags, place]
+    # 우선 date, like 제외
+    return [content, tags, place]
 
 # 다음 게시물로 클릭 이동시키는 함수
 def move_next(driver):
@@ -96,7 +96,8 @@ for i in range(target):
 # 결과 출력
 # print(results)
 
+# CSV 파일에 데이터 저장
 result_df = pd.DataFrame(results)
-result_df.columns = ['tags', 'place']
+result_df.columns = ['content', 'tags', 'place']
 # encoding = utf-8-sig로 해야 한글 안 깨짐
 result_df.to_csv('insta_travel_crawling.csv', index=False, encoding='utf-8-sig')
