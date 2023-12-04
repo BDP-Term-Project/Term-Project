@@ -24,3 +24,6 @@
 김경민 & 함범준: 인스타그램 크롤링 데이터 csv 열이 (content, extracted_tags, place)로 구성되어 있었는데, 네이버 크롤링 데이터와 통일성을 갖게 하고 전처리 편의성을 위해 content열에 모든 정보를 포함하기로 함(본문에 해시태그도 있으므로 content + place)
 
 kkma,okt,twitter,komoran
+
+kkma: 9분 40초 -> 성능이 너무 좋아서 오히려 안좋음
+okt: 30초 -> 성능도 나쁘지 않고 속도도 빠름
