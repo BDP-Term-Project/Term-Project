@@ -5,8 +5,8 @@ import csv
 import json
 
 
-client_id = "FVG3wWlAd0pWsd2o4gf2"
-client_secret = "6wh5CKV19L"
+client_id = "client키"
+client_secret = "client비밀번호"
 
 
 
