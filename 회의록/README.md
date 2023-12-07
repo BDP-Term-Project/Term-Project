@@ -44,7 +44,11 @@ reference: https://konlpy.org/ko/v0.4.3/morph/#comparison-between-pos-tagging-cl
 도시를 세분화하여 크롤링했을 때 얻을 수 있는 데이터는 230,000개 -> 세분화한 데이터를 다시 기존 17개 도시로 묶기 
 https://github.com/BDP-Term-Project/Term-Project/tree/main/data_collect/detail_place_sigun/combine_sido
 
+
+**2023-12-07**
 mapreduce 과정에서 한글이 utf-8 바이트로 깨지는 현상 발생 split하고 map & reduce하는 과정에서 바이트로 인식해서 결과가 깨지는 거로 판단
+
+okt 형태소 분석기로 사용해서 결과를 봤지만 명소이름이 너무 잘게 명사로 쪼개져서 (ex. 용오름 -> 용, 오름 으로 분리해서 인식) 쓰기에는 힘들거같다는 판단이 섰고, nltk를 단어 토큰화를 통해 공동제외명사에서 곂치는걸 빼는게 좋을거 같다는 의견 반영
 
 김경민 & 함범준: 인스타 크롤링 데이터에서 네이버 데이터와 형식 통일하기 위해 첫 번째 행(content) 제거
 좌민서: maprduce 결과가 우리가 생각한것보다 너무 안나옴 
