@@ -60,5 +60,5 @@ mapreduce 과정에서 한글이 utf-8 바이트로 깨지는 현상 발생(spli
  최건호:맵리듀스에서 output이 utf-8코드로 나오는 현상 Rawprotocol로 조정가능 하지만 count하는 숫자까지 인코딩을 하려고 해서 이부분만 조정하면될거같음
  출저: https://github.com/Yelp/mrjob/issues/1442
 
-
+ -> 마지막에 str()로 감싸서 해결 https://github.com/BDP-Term-Project/Term-Project/issues/3
 
