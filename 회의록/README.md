@@ -46,7 +46,7 @@ https://github.com/BDP-Term-Project/Term-Project/tree/main/data_collect/detail_p
 
 
 **2023-12-07**
-mapreduce 과정에서 한글이 utf-8 바이트로 깨지는 현상 발생(split하고 map & reduce하는 과정에서 바이트로 인식해서 결과가 깨지는 것으로 판단)
+  mapreduce 과정에서 한글이 utf-8 바이트로 깨지는 현상 발생(split하고 map & reduce하는 과정에서 바이트로 인식해서 결과가 깨지는 것으로 판단)
 
 okt 형태소 분석기로 사용해서 결과를 봤지만 명소 이름이 너무 잘게 명사로 쪼개져서(ex. 용오름 -> 용, 오름 으로 분리해서 인식) 쓰기에는 힘들 것 같다는 판단이 섰고, nltk를 단어 토큰화를 통해 공동 제외 명사에서 겹치는 것을 빼는 게 좋을 것 같다는 의견 반영
 
